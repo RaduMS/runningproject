@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>Waypoints in directions</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <style media="screen">
+    #right-panel {
+      font-family: 'Roboto', 'sans-serif';
+      line-height: 15px;
+      padding-left: 2px;
+      font-size: 12px;
+    }
+
+    #right-panel select,
+    #right-panel input {
+      font-size: 10px;
+    }
+
+    #right-panel select {
+      width: 100%;
+    }
+
+    #right-panel i {
+      font-size: 12px;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      height: 100%;
+      float: left;
+      width: 70%;
+      height: 100%;
+    }
+
+    #right-panel {
+      margin: 0px;
+      padding: 10px;
+      border-width: 2px;
+      width: 30%;
+      height: 100%;
+      float: left;
+      text-align: left;
+      padding-top: 0;
+      box-sizing: border-box;
+      overflow: scroll;
+    }
+
+    #directions-panel {
+      margin-top: 10px;
+      background-color: #FFEE77;
+      padding: 10px;
+      overflow: scroll;
+      height: 174px;
+      font-size: 7px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+  <div id="right-panel">
+    <div>
+      <b>Start:</b><br>
+      <b>Waypoints:</b> <br>
+      <b>End:</b><br>
+      <input type="submit" id="submit">
+      <select class="selectH" id="orase" name="orase">
+        <option value="trail5">Traseul1</option>
+        <option value="trail10">Traseul2</option>
+      </select>
+      <select class="selectH" id="selectH" name="trasee" placeholder="Select Trail">
+        <option value="trail5">Traseul1</option>
+        <option value="trail10">Traseul2</option>
+      </select>
+    </div>
+    <input id="datePicker" type="date" name="" value="">
+    <button id="datebtn" type="button" name="button">Wheather Forecast</button>
+    <p class="getDate"></p>
+    <div id="directions-panel"></div>
+  </div>
+  <script>
+  </script>
+  <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPKO5P4fSH9AQPSzvXGmDMECNIPWxHv_4&callback=initMap">
+  </script>
+</body>
+
+</html>
