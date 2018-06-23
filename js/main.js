@@ -1,19 +1,30 @@
 class Track {
-  constructor(id, distance, runtype, traseu) {
+  constructor(id, distance, runtype, trackPinPoint) {
     this.id = id;
     this.distance = distance;
     this.runtype = runtype;
-    this.traseu = traseu;
+    this.trackPinPoint = trackPinPoint;
   }
 }
 
-class Oras {
-  constructor(id, trasee, coordonate) {
+class City {
+  constructor(id, tracksList, coordinates) {
     this.id = id;
-    this.trasee = trasee;
-    this.coordonate = coordonate;
+    this.tracksList = tracksList;
+    this.coordinates = coordinates;
   }
 }
+
+// weather event
+var button = document.getElementById('datebtn');
+button.addEventListener('click', function() {
+  var date = $('#datePicker').val();
+  var seconds = transformDate(date);
+  // var latitude = 45.6580;
+  // var longitude = 25.6012;
+  weatherReport(seconds);
+
+});
 // var trail5 = new Track(5, 'trail', [1, 1], [2, 2]);
 // var trail5_2 = new Track(5, 'trail', [3, 3], [5, 5]);
 // var trail10 = new Track(10, 'trail', [3, 3], [4, 4]);
@@ -59,26 +70,26 @@ var peVale2 = new Track('Pe Vale2', 5, 'trail', [{
   lng: 25.46469236
 }]);
 
-var trasee = [trail10, trail5];
-var traseeRasnov = [peVale, peVale2];
+var brasovTracks = [trail10, trail5];
+var rasnovTracks = [peVale, peVale2];
 
-var brasov = new Oras('Brasov', trasee, {
+var brasov = new City('Brasov', brasovTracks, {
   lat: 45.6579755,
   lng: 25.6011977
 });
 
-var rasnov = new Oras('Rasnov', traseeRasnov, {
+var rasnov = new City('Rasnov', rasnovTracks, {
   lat: 45.5937295,
   lng: 25.4610231
 });
 
-var orasele = [rasnov, brasov];
+var allCities = [rasnov, brasov];
 
 
-function introduOraseInSelect(orasele) {
-  var selectOrase = document.getElementById('orase');
+function createCitySelectionList(allCities) {
+  var citiesSelection = document.getElementById('cities');
   var str = '';
-  orasele.sort(function(a, b) {
+  allCities.sort(function(a, b) {
     var nameA = a.id.toUpperCase(); // ignore upper and lowercase
     var nameB = b.id.toUpperCase(); // ignore upper and lowercase
     if (nameA < nameB) {
@@ -91,31 +102,31 @@ function introduOraseInSelect(orasele) {
     return 0;
   });
 
-  for (var i = 0; i < orasele.length; i++) {
-    var orasul = orasele[i]
-    str = str + '<option value="' + orasul.id + '" id="' + orasul.id + '">' + orasul.id + '</option>';
+  for (var i = 0; i < allCities.length; i++) {
+    var selectedCity = allCities[i];
+    str = str + '<option value="' + selectedCity.id + '" id="' + selectedCity.id + '">' + selectedCity.id + '</option>';
   }
 
-  selectOrase.innerHTML = str;
+  citiesSelection.innerHTML = str;
   // console.log(orasele);
 };
 
-introduOraseInSelect(orasele);
+createCitySelectionList(allCities);
 
-function introduTraseeleInSelect(orasele) {
+function createTrackSelectionList(allCities) {
 
-  var selectTrasee = document.getElementById('selectH');
-  var optgroup = '<option default>Select Track</option>';
+  var trackOptions = document.getElementById('trackOptions');
+  var optionsGroup = '<option default>Select Track</option>';
   var km = [];
-  var orasulObject = orasulAlesEste(orasele);
-  var trasee = orasulObject.trasee;
-  for (var i = 0; i < trasee.length; i++) {
-    var traseul = trasee[i];
-    km.push(traseul.distance);
+  var createdCity = displaySelectedCity(allCities);
+  var tracks = createdCity.tracksList;
+  for (var i = 0; i < tracks.length; i++) {
+    var trackItem = tracks[i];
+    km.push(trackItem.distance);
   }
   // le filtrez ca sa imi ramana numai valori unice
-  var uniqueArray = km.filter(function(item, pos) {
-    return km.indexOf(item) == pos;
+  var uniqueArray = km.filter(function(item, position) {
+    return km.indexOf(item) == position;
   });
   // le sortez sa fie in ordine crescatoare
   uniqueArray.sort(function(a, b) {
@@ -123,42 +134,26 @@ function introduTraseeleInSelect(orasele) {
   });
 
   for (var i = 0; i < uniqueArray.length; i++) {
-    var kilometri = uniqueArray[i]
-    var options = loop();
-
-    function loop() {
-      var options = '';
-      for (var i = 0; i < trasee.length; i++) {
-        var traseulSecond = trasee[i];
-        if (traseulSecond.distance == kilometri) {
-          options = options + '<option value="' + traseulSecond.id + '" id="' + traseulSecond.id + '">' + traseulSecond.id + '</option>';
-        }
+    var kilometers = uniqueArray[i];
+    var options = '';
+    for (var j = 0; j < tracks.length; j++) {
+      var trackItem = tracks[j];
+      if (trackItem.distance == kilometers) {
+        options = options + '<option value="' + trackItem.id + '" id="' + trackItem.id + '">' + trackItem.id + '</option>';
       }
-      return options;
     }
-    optgroup = optgroup + '<optgroup label="' + uniqueArray[i] + ' km">' + options + '</optgroup>';
+    optionsGroup = optionsGroup + '<optgroup label="' + uniqueArray[i] + ' km">' + options + '</optgroup>';
   }
-  selectTrasee.innerHTML = optgroup;
+  trackOptions.innerHTML = optionsGroup;
 }
 
-introduTraseeleInSelect(orasele);
+createTrackSelectionList(allCities);
 
-
-// var userChoice = ['trail', 5]
-
-// for (var i = 0; i < trasee.length; i++) {
-//   if (trasee[i].runtype == userChoice[0] && trasee[i].distance == userChoice[1]) {
-//     console.log(trasee[i].traseu);
-//   }
-// }
-
-
-//
 // functiile de desenare a harti
 //
 
 // initMap se apeleaza in lincul de la sctriptul de mai jos unde introduci appi key
-function initMap(arr) {
+function initMap() {
 
   var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -178,15 +173,13 @@ function initMap(arr) {
   // cand se schimba selectu de la orase
   //
 
-  document.getElementById('orase').addEventListener('change', function() {
+  document.getElementById('cities').addEventListener('change', function() {
+    createTrackSelectionList(allCities);
 
-
-    introduTraseeleInSelect(orasele);
-
-    var hartaOras = orasulAlesEste(orasele);
+    var cityMap = displaySelectedCity(allCities);
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 12,
-      center: hartaOras.coordonate
+      center: cityMap.coordinates
     });
     // map displayd on entering page
     directionsDisplay.setMap(null);
@@ -197,40 +190,40 @@ function initMap(arr) {
   // cand se schimba selectul de la trasee
   //
 
-  document.getElementById('selectH').addEventListener('change', function() {
+  document.getElementById('trackOptions').addEventListener('change', function() {
 
-    var hartaOras = orasulAlesEste(orasele);
+    var cityMap = displaySelectedCity(allCities);
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 12,
-      center: hartaOras.coordonate
+      center: cityMap.coordinates
     });
     directionsDisplay.setMap(map);
-    var traseulEste = traseulAlesEste();
-    console.log(traseulEste);
-    calculateAndDisplayRoute(directionsService, directionsDisplay, traseulEste.traseu);
+    var selectedTrack = displaySelectedTrack();
+    console.log(selectedTrack);
+    calculateAndDisplayRoute(directionsService, directionsDisplay, selectedTrack.trackPinPoint);
     console.log(directionsDisplay);
     // visitPage();
   });
 
 }
 
-function traseulAlesEste() {
-  var orasul = orasulAlesEste(orasele);
-  var trasee = orasul.trasee;
-  var traseulAles = document.getElementById('selectH').value;
-  for (var i = 0; i < trasee.length; i++) {
-    var result = trasee[i]
-    if (traseulAles == result.id) {
+function displaySelectedTrack() {
+  var city = displaySelectedCity(allCities);
+  var tracks = city.tracksList;
+  var selectedTrack = document.getElementById('trackOptions').value;
+  for (var i = 0; i < tracks.length; i++) {
+    var result = tracks[i]
+    if (selectedTrack == result.id) {
       return result;
     }
   }
 }
 
-function orasulAlesEste(orasele) {
-  var orasul = document.getElementById('orase').value;
-  for (var i = 0; i < orasele.length; i++) {
-    var result = orasele[i];
-    if (orasul == result.id) {
+function displaySelectedCity(allCities) {
+  var city = document.getElementById('cities').value;
+  for (var i = 0; i < allCities.length; i++) {
+    var result = allCities[i];
+    if (city == result.id) {
       return result;
     }
   }
@@ -258,8 +251,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, arr) {
       var route = response.routes[0];
       var summaryPanel = document.getElementById('directions-panel');
       summaryPanel.innerHTML = '';
-      var distanta = 0;
-      var distantaKm = 0;
+      var distance = 0;
+      var distanceInKm = 0;
       // For each route, display summary information.
       for (var i = 0; i < route.legs.length; i++) {
         var routeSegment = i + 1;
@@ -268,50 +261,14 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, arr) {
         summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
         summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
         summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-        distanta += route.legs[i].distance.value;
+        distance += route.legs[i].distance.value;
       }
-      distantaKm = Math.round(distanta / 10) / 100;
-      summaryPanel.innerHTML += "Distanta totala este: " + distantaKm + 'km';
+      distanceInKm = Math.round(distance / 10) / 100;
+      summaryPanel.innerHTML += "Total distance: " + distanceInKm + 'km';
     } else {
       window.alert('Directions request failed due to ' + status);
     }
   });
-}
-
-// function visitPage() {
-//   window.location = 'harta.html';
-// }
-
-
-
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-var button = document.getElementById('datebtn');
-button.addEventListener('click', vremea);
-
-function vremea() {
-  var date = $('#datePicker').val();
-  var seconds = transformDate(date);
-  weatherReport(seconds);
 }
 
 function transformDate(dateItem) {
@@ -330,18 +287,25 @@ function weatherReport(seconds) {
   // once a user has submitted the form.
   var apiKey = '80c9dbbcb6689d9f14426b3f07663f36',
     url = 'https://api.darksky.net/forecast/',
-    city = orasulAlesEste(orasele),
+    city = displaySelectedCity(allCities),
     seconds = seconds,
-    api_call = url + apiKey + "/" + city.coordonate.lat + "," + city.coordonate.lng + "," + seconds;
+    api_call = url + apiKey + "/" + city.coordinates.lat + "," + city.coordinates.lng + "," + seconds;
 
   api_call = api_call.concat("?units=ca&callback=?")
 
   // Call to the DarkSky API to retrieve JSON
   var darkSkyApi = $.getJSON(api_call, function(forecast) {
     $('.getDate').html(forecast.daily.data[0].temperatureMax + " &#8451" + " / " + forecast.daily.data[0].summary);
-    // console.log(forecast.hourly.data[13]);
-    // console.log(forecast.daily);
-    // console.log(forecast.daily.data[0].summary);
   });
   return darkSkyApi;
 }
+
+function currentDate() {
+  var dateToday = new Date();
+  var months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+  var dataStr = dateToday.getFullYear() + '-' + months[dateToday.getMonth()] + '-' + dateToday.getDate();
+  var data1 = document.getElementById('datePicker');
+  data1.min = dataStr;
+  console.log(data1.min);
+}
+currentDate();
