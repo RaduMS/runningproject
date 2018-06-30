@@ -15,19 +15,46 @@ class City {
   }
 }
 
+
+// Display inspirational quote
+var myQuote = $('.quote')[0];
+setTimeout(showQuote, 300);
+
+var myTimer = setInterval(changeQuote, 2000);
+
+//Stop the displaying of phrases if clicked.
+myQuote.onclick = function(){
+  clearInterval(myTimer);
+  // myMessage.innerHTML = ""; // daca scoatem linia asta de cod mesajul va ramane cel care este displayed cu totul
+}
+
+//Inspirational quotes - functions
+
+function showQuote(){
+  myQuote.className = "quote onDisplay intro-heading text-uppercase";
+}
+
+//Display all inspirational phrases each at a time
+var phrases = ["Run faster", "Be Braver", "Be Bolder", "Trust your self", "Be the best you can be", "bla bla bla"];
+var counter = 0;
+
+function changeQuote(){
+  if (counter >= phrases.length){
+    counter = 0;
+  }
+  myQuote.innerHTML = phrases[counter];
+  counter ++;
+}
+//
+//
 // weather event
+document.getElementById('datePicker').valueAsDate = new Date();
 var button = document.getElementById('datebtn');
-button.addEventListener('click', function() {
+button.addEventListener('click', function(){
   var date = $('#datePicker').val();
   var seconds = transformDate(date);
-  // var latitude = 45.6580;
-  // var longitude = 25.6012;
   weatherReport(seconds);
-
 });
-// var trail5 = new Track(5, 'trail', [1, 1], [2, 2]);
-// var trail5_2 = new Track(5, 'trail', [3, 3], [5, 5]);
-// var trail10 = new Track(10, 'trail', [3, 3], [4, 4]);
 
 var trail10 = new Track('trail10', 10, 'trail', [{
   lat: 45.6310933,
@@ -108,7 +135,6 @@ function createCitySelectionList(allCities) {
   }
 
   citiesSelection.innerHTML = str;
-  // console.log(orasele);
 };
 
 createCitySelectionList(allCities);
@@ -149,10 +175,9 @@ function createTrackSelectionList(allCities) {
 
 createTrackSelectionList(allCities);
 
-// functiile de desenare a harti
-//
 
-// initMap se apeleaza in lincul de la sctriptul de mai jos unde introduci appi key
+// Map drawing - functions
+//
 function initMap() {
 
   var directionsService = new google.maps.DirectionsService;
@@ -185,6 +210,8 @@ function initMap() {
     directionsDisplay.setMap(null);
     console.log(directionsDisplay);
   });
+
+  //
 
   //
   // cand se schimba selectul de la trasee
@@ -249,7 +276,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, arr) {
     if (status === 'OK') {
       directionsDisplay.setDirections(response);
       var route = response.routes[0];
-      var summaryPanel = document.getElementById('directions-panel');
+      var summaryPanel = document.getElementById('directions');
       summaryPanel.innerHTML = '';
       var distance = 0;
       var distanceInKm = 0;
@@ -271,41 +298,31 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, arr) {
   });
 }
 
-function transformDate(dateItem) {
+function transformDate(dateItem){
   var dateChosen = new Date(dateItem);
   //get miliseconds since 1st Jan 1970
   dateChosen = dateChosen.getTime();
-  //get seconds since 1st Jan 1970. + 61200 seconds until 2PM to show a temperature in the day time
-  dateChosen = dateChosen / 1000;
+  //get seconds since 1st Jan 1970.
+  dateChosen = dateChosen/1000;
   return dateChosen;
 }
 
 
 function weatherReport(seconds) {
-  // variables config for coordinates, url and api key
-  // latitude and longitude are accepted arguments and passed
-  // once a user has submitted the form.
-  var apiKey = '80c9dbbcb6689d9f14426b3f07663f36',
-    url = 'https://api.darksky.net/forecast/',
-    city = displaySelectedCity(allCities),
-    seconds = seconds,
-    api_call = url + apiKey + "/" + city.coordinates.lat + "," + city.coordinates.lng + "," + seconds;
+	// variables config for coordinates, url and api key
+	// latitude and longitude are accepted arguments and passed
+	// once a user has submitted the form.
+	var apiKey       = '80c9dbbcb6689d9f14426b3f07663f36',
+			url          = 'https://api.darksky.net/forecast/',
+      city         = displaySelectedCity(allCities),
+      seconds      = seconds,
+			api_call     = url + apiKey + "/" + city.coordinates.lat + "," + city.coordinates.lng + "," + seconds;
 
-  api_call = api_call.concat("?units=ca&callback=?")
+      api_call = api_call.concat("?units=ca&callback=?")
 
-  // Call to the DarkSky API to retrieve JSON
-  var darkSkyApi = $.getJSON(api_call, function(forecast) {
-    $('.getDate').html(forecast.daily.data[0].temperatureMax + " &#8451" + " / " + forecast.daily.data[0].summary);
-  });
-  return darkSkyApi;
+      // Call to the DarkSky API to retrieve JSON
+      	var darkSkyApi = $.getJSON(api_call, function(forecast) {
+          $('.getDate').html("min: "+ forecast.daily.data[0].temperatureMin +" &#8451" +"/ "+"max: "+ forecast.daily.data[0].temperatureMax + " &#8451" + "<br/>" + forecast.daily.data[0].summary);
+        });
+        return darkSkyApi;
 }
-
-function currentDate() {
-  var dateToday = new Date();
-  var months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
-  var dataStr = dateToday.getFullYear() + '-' + months[dateToday.getMonth()] + '-' + dateToday.getDate();
-  var data1 = document.getElementById('datePicker');
-  data1.min = dataStr;
-  console.log(data1.min);
-}
-currentDate();
