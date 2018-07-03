@@ -326,3 +326,41 @@ function weatherReport(seconds) {
         });
         return darkSkyApi;
 }
+
+// Countdown function
+
+
+  function cdtd() {
+    var xmas = new Date ("July 03, 2018, 19:27:00");
+    var now = new Date();
+    
+    var runAnnounce = document.getElementById("runAnnounce");
+    
+    var contdownSection = document.getElementById("contdownSection");
+    var timeDiff = xmas.getTime() - now.getTime();
+    if (timeDiff <= 0) {
+        clearTimeout(timer);
+        document.getElementById("runAnnounce").style.display = "block";
+        contdownSection.style.display = "none";
+        
+      } else {
+        document.getElementById("runAnnounce").style.display = "none";
+      }
+
+    var seconds = Math.floor(timeDiff / 1000);
+    var minutes = Math.floor(seconds / 60);
+    var hours = Math.floor(minutes / 60);
+    var days = Math.floor(hours / 24);
+    hours %= 24;
+    minutes %= 60;
+    seconds %= 60;
+
+    document.getElementById("daysBox").innerHTML = days;
+    document.getElementById("hoursBox").innerHTML = hours;
+    document.getElementById("minsBox").innerHTML = minutes;
+    document.getElementById("secsBox").innerHTML = seconds;
+
+    var timer = setTimeout("cdtd()", 1000);
+  }
+
+  cdtd();

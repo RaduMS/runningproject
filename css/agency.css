@@ -711,3 +711,35 @@ ul.social-buttons li a {
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
   background-color: #fed136;
 }
+
+#contdownSection, #runAnnounce {
+  position: absolute;
+  float: right;
+  right: 10px;
+  bottom: 0;
+  top: 570px;
+}
+
+#timeSection {
+    color: blue;
+    text-shadow: 2px 2px red;
+    font-size: 200%;
+}
+
+#countdownTitle {
+  color: blue;
+  text-shadow: 2px 2px red;
+  font-size: 150%;
+}
+
+.timeBox {
+  color: blue;
+  text-shadow: 2px 2px red;
+  font-size: 150%;
+}
+
+#runAnnounce {
+  color: blue;
+  text-shadow: 2px 2px red;
+  font-size: 200%;
+}
