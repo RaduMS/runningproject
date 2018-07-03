@@ -331,7 +331,7 @@ function weatherReport(seconds) {
 
 
   function cdtd() {
-    var xmas = new Date ("July 03, 2018, 19:27:00");
+    var xmas = new Date ("July 03, 2019, 19:27:00");
     var now = new Date();
     
     var runAnnounce = document.getElementById("runAnnounce");
