@@ -208,7 +208,7 @@ function initMap() {
     });
     // map displayd on entering page
     directionsDisplay.setMap(null);
-    console.log(directionsDisplay);
+
   });
 
   //
@@ -217,8 +217,8 @@ function initMap() {
   // cand se schimba selectul de la trasee
   //
 
-  document.getElementById('trackOptions').addEventListener('change', function() {
 
+  document.getElementById('trackOptions').addEventListener('change', function() {
     var cityMap = displaySelectedCity(allCities);
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 12,
@@ -226,13 +226,11 @@ function initMap() {
     });
     directionsDisplay.setMap(map);
     var selectedTrack = displaySelectedTrack();
-    console.log(selectedTrack);
     calculateAndDisplayRoute(directionsService, directionsDisplay, selectedTrack.trackPinPoint);
-    console.log(directionsDisplay);
-    // visitPage();
   });
 
-}
+
+} //End of function init map
 
 function displaySelectedTrack() {
   var city = displaySelectedCity(allCities);
@@ -322,7 +320,7 @@ function weatherReport(seconds) {
 
       // Call to the DarkSky API to retrieve JSON
       	var darkSkyApi = $.getJSON(api_call, function(forecast) {
-          $('.getDate').html("min: "+ forecast.daily.data[0].temperatureMin +" &#8451" +"/ "+"max: "+ forecast.daily.data[0].temperatureMax + " &#8451" + "<br/>" + forecast.daily.data[0].summary);
+          $('.getDate').html("min: "+ Math.round(forecast.daily.data[0].temperatureMin) +" &#8451" +"/ "+"max: "+ Math.round(forecast.daily.data[0].temperatureMax) + " &#8451" + "<br/>" + forecast.daily.data[0].summary);
         });
         return darkSkyApi;
 }

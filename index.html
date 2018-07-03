@@ -39,10 +39,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+              <a class="nav-link js-scroll-trigger" href="#maps">Maps</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+              <a class="nav-link js-scroll-trigger" href="#routes">Routes</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">About</a>
@@ -94,13 +94,13 @@
       </div>
     </header>
 
-    <!-- Services -->
-    <section id="services">
+    <!-- Maps -->
+    <section id="maps">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Services</h2>
-            <h3 class="section-subheading text-muted mb-0">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase">Maps</h2>
+            <h3 class="section-subheading text-muted mb-0">Select where you want to run!</h3>
             <select id= "cities" class="selectH custom-select mb-3" type="text" name="cities" value="" placeholder="Choose a city"></select>
           </div>
         </div>
@@ -109,18 +109,35 @@
           <div class="col-md-12">
             <div id="directionsPanel">
               <div class="border" id="map"></div>
-              <div id="right-panel">
-                <div class="d-flex flex-column">
-                  <p class="h4 text-muted text-justify">Find out when it's a good day to run!</p>
-                  <input id="datePicker" class="input-group input-group-lg mb-2" type="date" name="" value="">
-                  <button id="datebtn" class="btn btn-secondary d-flex justify-content-center" type="button" name="button">Wheather Forecast</button>
-                  <p class="getDate h5 text-center mt-2"></p>
+              <div class="" id="right-panel">
+                <div class="container">
+                  <div class="d-flex flex-sm-column row">
+                    <div class="col-xs-12 col-centered">
+                      <p class="h4 text-muted text-justify text-sm-center d-flex">Find out when it's a good day to run!</p>
+                    </div>
+                    <div  class="col-xs-12 col-centered">
+                      <input id="datePicker" class="input-group input-group-lg rounded mb-2" type="date" name="" value="">
+                      <button id="datebtn" class="btn btn-secondary btn-block d-flex justify-content-center text-wrap" type="button" name="button"><span>Weather Forecast</span></button>
+                      <p class="getDate h5 text-center mt-2"></p>
+                    </div>
+                  </div>
+                  <div id="directions"></div>
                 </div>
-                <div id="directions"></div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+      <section class="bg-light" id="routes">
+        <div class="container">
+          <div class="row mb-4 mt-4">
+            <div class="col-lg-12 text-center">
+              <h2 class="section-heading text-uppercase">Routes</h2>
+              <h3 class="section-subheading text-muted mb-0">Choose one of our running routes</h3>
+            </div>
+          </div>
 
         <div class="row text-center">
           <div class="col-md-4 mt-3">
@@ -131,9 +148,9 @@
             <div class="collapse multi-collapse" id="multiCollapseExample1">
               <p class="text-muted">For an easy and smooth exercise, choose one of our flat trails.</p>
               <div>
-                <select class="selectH custom-select" id="trackOptions" name="trasee" placeholder="Select Trail">
-                  <option value="trail5">Traseul1</option>
-                  <option value="trail10">Traseul2</option>
+                <select class="selectH custom-select js-scroll-trigger" id="trackOptions" name="trasee" placeholder="Select Trail">
+                  <option class="" value="trail5">Traseul1></option>
+                  <option class="" value="trail10">Traseul2</option>
                 </select>
               </div>
             </div>
@@ -149,7 +166,6 @@
             </div>
           </div>
 
-
           <div class="col-md-4 mt-3">
             <button class="btn" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">
               <img class="combinedTrack mx-auto rounded-circle" src="img/combinedTrack.jpg" alt="combined track">
@@ -160,9 +176,6 @@
             </div>
           </div>
         </div>
-
-
-
       </div>
     </section>
 
@@ -489,7 +502,7 @@
     </section> -->
 
     <!-- Contact -->
-    <!-- <section id="contact">
+    <section id="contact">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -531,7 +544,7 @@
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -802,7 +815,7 @@
     <script src="js/contact_me.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="js/agency.min.js"></script>
+    <script src="js/agency.js"></script>
     <script src="js/main.js"></script>
 
 
