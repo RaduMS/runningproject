@@ -64,9 +64,9 @@
         <div class="intro-text">
           <div class="intro-lead-in">Welcome To Our Running App!</div>
           <div class="quote intro-heading text-uppercase">It's Nice To Meet You</div>
-          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Get Started</a></br>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#maps">Get Started</a></br>
 
-          
+
 
 
         </div>
@@ -75,21 +75,21 @@
         <div id="contdownSection">
             <div id="countdownTitle">Time left till the great Event</div>
             <span class="timeSection">Days remaining: </span><span id = "daysBox" class="timeBox">Days</span></br>
-            
+
             <span class="timeSection">Hours remaining:  </span><span id = "hoursBox" class="timeBox"></span></br>
-            
+
             <span class="timeSection">Minutes remaining:  </span><span id = "minsBox" class="timeBox"></span></br>
-            
+
             <span class="timeSection">Seconds remaining:  </span><span id = "secsBox" class="timeBox"></span></br>
-    
-            
-            
+
+
+
             </div>
-            
+
             <div id="runAnnounce">It's time to run like a crazy!</div>
-    
-       
-        
+
+
+
 
       </div>
     </header>
@@ -163,6 +163,12 @@
             <h4 class="service-heading">Trail</h4>
             <div class="collapse multi-collapse" id="multiCollapseExample2">
               <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+              <div>
+                <select class="custom-select js-scroll-trigger" id="trailRoutesOptions" name="trailRoutesOptions" placeholder="Select Trail">
+                  <option class="" value="">Trail Route 1></option>
+                  <option class="" value="">Trail Route 2</option>
+                </select>
+              </div>
             </div>
           </div>
 
@@ -798,10 +804,7 @@
       </div>
     </div> -->
 
-    <!--API scripts-->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPKO5P4fSH9AQPSzvXGmDMECNIPWxHv_4&callback=initMap">
-    </script>
-
+  
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -818,6 +821,9 @@
     <script src="js/agency.js"></script>
     <script src="js/main.js"></script>
 
+    <!--API scripts-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPKO5P4fSH9AQPSzvXGmDMECNIPWxHv_4&callback=initMap">
+    </script>
 
   </body>
 
