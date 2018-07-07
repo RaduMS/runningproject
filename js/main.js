@@ -239,27 +239,34 @@ function initMap() {
   // cand se schimba selectul de la trasee
   //
 
+  showTrackOnMap('flatTrackOptions');
+  showTrackOnMap('trailTrackOption');
+  showTrackOnMap('combinedTrackOptions');
 
-  document.getElementById('trackOptions').addEventListener('change', function() {
-    var cityMap = displaySelectedCity(allCities);
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 12,
-      center: cityMap.coordinates
+  //functia de afisare a traseului pe harta
+  function showTrackOnMap(idSelectionList) {
+    document.getElementById(idSelectionList).addEventListener('change', function() {
+      var cityMap = displaySelectedCity(allCities);
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: cityMap.coordinates
+      });
+      directionsDisplay.setMap(map);
+      var selectedTrack = displaySelectedTrack(idSelectionList);
+      calculateAndDisplayRoute(directionsService, directionsDisplay, selectedTrack.trackPinPoint);
+      var $maplink = $('a[href="#maps"]');
+      $maplink.trigger('click');
     });
-    directionsDisplay.setMap(map);
-    var selectedTrack = displaySelectedTrack();
-    calculateAndDisplayRoute(directionsService, directionsDisplay, selectedTrack.trackPinPoint);
-    var $maplink = $('a[href="#maps"]');
-    $maplink.trigger('click');
-  });
+  }
 
 
 } //End of function init map
 
-function displaySelectedTrack() {
+
+function displaySelectedTrack(idSelectionList) {
   var city = displaySelectedCity(allCities);
   var tracks = city.tracksList;
-  var selectedTrack = document.getElementById('trackOptions').value;
+  var selectedTrack = document.getElementById(idSelectionList).value;
   for (var i = 0; i < tracks.length; i++) {
     var result = tracks[i]
     if (selectedTrack == result.id) {
