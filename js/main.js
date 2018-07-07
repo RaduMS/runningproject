@@ -243,6 +243,7 @@ function initMap() {
   showTrackOnMap('trailTrackOption');
   showTrackOnMap('combinedTrackOptions');
 
+  //functia de afisare a traseului pe harta
   function showTrackOnMap(idSelectionList) {
     document.getElementById(idSelectionList).addEventListener('change', function() {
       var cityMap = displaySelectedCity(allCities);
