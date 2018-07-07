@@ -23,14 +23,14 @@ setTimeout(showQuote, 300);
 var myTimer = setInterval(changeQuote, 2000);
 
 //Stop the displaying of phrases if clicked.
-myQuote.onclick = function(){
+myQuote.onclick = function() {
   clearInterval(myTimer);
   // myMessage.innerHTML = ""; // daca scoatem linia asta de cod mesajul va ramane cel care este displayed cu totul
 }
 
 //Inspirational quotes - functions
 
-function showQuote(){
+function showQuote() {
   myQuote.className = "quote onDisplay intro-heading text-uppercase";
 }
 
@@ -38,25 +38,25 @@ function showQuote(){
 var phrases = ["Run faster", "Be Braver", "Be Bolder", "Trust your self", "Be the best you can be", "bla bla bla"];
 var counter = 0;
 
-function changeQuote(){
-  if (counter >= phrases.length){
+function changeQuote() {
+  if (counter >= phrases.length) {
     counter = 0;
   }
   myQuote.innerHTML = phrases[counter];
-  counter ++;
+  counter++;
 }
 //
 //
 // weather event
 document.getElementById('datePicker').valueAsDate = new Date();
 var button = document.getElementById('datebtn');
-button.addEventListener('click', function(){
+button.addEventListener('click', function() {
   var date = $('#datePicker').val();
   var seconds = transformDate(date);
   weatherReport(seconds);
 });
 
-var trail10 = new Track('trail10', 10, 'trail', [{
+var trail10 = new Track('trail10', 10, 'flat', [{
   lat: 45.6310933,
   lng: 25.64033649
 }, {
@@ -66,7 +66,7 @@ var trail10 = new Track('trail10', 10, 'trail', [{
   lat: 45.68004765,
   lng: 25.64445637
 }]);
-var trail5 = new Track('trail5', 5, 'trail', [{
+var trail5 = new Track('trail5', 5, 'flat', [{
   lat: 45.66085497,
   lng: 25.59501789
 }, {
@@ -86,7 +86,7 @@ var peVale = new Track('Pe Vale', 5, 'trail', [{
   lat: 45.58925491,
   lng: 25.47606493
 }]);
-var peVale2 = new Track('Pe Vale2', 5, 'trail', [{
+var peVale2 = new Track('Pe Vale2', 5, 'combined', [{
   lat: 45.58925491,
   lng: 25.47606493
 }, {
@@ -141,36 +141,58 @@ createCitySelectionList(allCities);
 
 function createTrackSelectionList(allCities) {
 
-  var trackOptions = document.getElementById('trackOptions');
-  var optionsGroup = '<option default>Select Track</option>';
-  var km = [];
   var createdCity = displaySelectedCity(allCities);
   var tracks = createdCity.tracksList;
-  for (var i = 0; i < tracks.length; i++) {
-    var trackItem = tracks[i];
-    km.push(trackItem.distance);
-  }
-  // le filtrez ca sa imi ramana numai valori unice
-  var uniqueArray = km.filter(function(item, position) {
-    return km.indexOf(item) == position;
-  });
-  // le sortez sa fie in ordine crescatoare
-  uniqueArray.sort(function(a, b) {
-    return a - b
-  });
 
-  for (var i = 0; i < uniqueArray.length; i++) {
-    var kilometers = uniqueArray[i];
-    var options = '';
-    for (var j = 0; j < tracks.length; j++) {
-      var trackItem = tracks[j];
-      if (trackItem.distance == kilometers) {
-        options = options + '<option value="' + trackItem.id + '" id="' + trackItem.id + '">' + trackItem.id + '</option>';
+  var flatTracksList = tracksList('flat');
+  createSpecificTrackSelectionList(flatTracksList, 'flatTrackOptions');
+  var trailTracksList = tracksList('trail');
+  createSpecificTrackSelectionList(trailTracksList, 'trailTrackOption');
+  var combinedTracksList = tracksList('combined');
+  createSpecificTrackSelectionList(combinedTracksList, 'combinedTrackOptions')
+
+  function tracksList(trackTipe) {
+    var listTracks = [];
+    for (var i = 0; i < tracks.length; i++) {
+      var trackItem = tracks[i];
+      if (trackItem.runtype == trackTipe) {
+        listTracks.push(trackItem);
       }
     }
-    optionsGroup = optionsGroup + '<optgroup label="' + uniqueArray[i] + ' km">' + options + '</optgroup>';
+    return listTracks;
   }
-  trackOptions.innerHTML = optionsGroup;
+
+  function createSpecificTrackSelectionList(tracks, idSelectionList) {
+    var trackOptions = document.getElementById(idSelectionList);
+    var optionsGroup = '<option default>Select Track</option>';
+    var km = [];
+
+    for (var i = 0; i < tracks.length; i++) {
+      var trackItem = tracks[i];
+      km.push(trackItem.distance);
+    }
+    // le filtrez ca sa imi ramana numai valori unice
+    var uniqueArray = km.filter(function(item, position) {
+      return km.indexOf(item) == position;
+    });
+    // le sortez sa fie in ordine crescatoare
+    uniqueArray.sort(function(a, b) {
+      return a - b
+    });
+
+    for (var i = 0; i < uniqueArray.length; i++) {
+      var kilometers = uniqueArray[i];
+      var options = '';
+      for (var j = 0; j < tracks.length; j++) {
+        var trackItem = tracks[j];
+        if (trackItem.distance == kilometers) {
+          options = options + '<option value="' + trackItem.id + '" id="' + trackItem.id + '">' + trackItem.id + '</option>';
+        }
+      }
+      optionsGroup = optionsGroup + '<optgroup label="' + uniqueArray[i] + ' km">' + options + '</optgroup>';
+    }
+    trackOptions.innerHTML = optionsGroup;
+  }
 }
 
 createTrackSelectionList(allCities);
@@ -227,6 +249,8 @@ function initMap() {
     directionsDisplay.setMap(map);
     var selectedTrack = displaySelectedTrack();
     calculateAndDisplayRoute(directionsService, directionsDisplay, selectedTrack.trackPinPoint);
+    var $maplink = $('a[href="#maps"]');
+    $maplink.trigger('click');
   });
 
 
@@ -296,69 +320,69 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, arr) {
   });
 }
 
-function transformDate(dateItem){
+function transformDate(dateItem) {
   var dateChosen = new Date(dateItem);
   //get miliseconds since 1st Jan 1970
   dateChosen = dateChosen.getTime();
   //get seconds since 1st Jan 1970.
-  dateChosen = dateChosen/1000;
+  dateChosen = dateChosen / 1000;
   return dateChosen;
 }
 
 
 function weatherReport(seconds) {
-	// variables config for coordinates, url and api key
-	// latitude and longitude are accepted arguments and passed
-	// once a user has submitted the form.
-	var apiKey       = '80c9dbbcb6689d9f14426b3f07663f36',
-			url          = 'https://api.darksky.net/forecast/',
-      city         = displaySelectedCity(allCities),
-      seconds      = seconds,
-			api_call     = url + apiKey + "/" + city.coordinates.lat + "," + city.coordinates.lng + "," + seconds;
+  // variables config for coordinates, url and api key
+  // latitude and longitude are accepted arguments and passed
+  // once a user has submitted the form.
+  var apiKey = '80c9dbbcb6689d9f14426b3f07663f36',
+    url = 'https://api.darksky.net/forecast/',
+    city = displaySelectedCity(allCities),
+    seconds = seconds,
+    api_call = url + apiKey + "/" + city.coordinates.lat + "," + city.coordinates.lng + "," + seconds;
 
-      api_call = api_call.concat("?units=ca&callback=?")
+  api_call = api_call.concat("?units=ca&callback=?")
 
-      // Call to the DarkSky API to retrieve JSON
-      	var darkSkyApi = $.getJSON(api_call, function(forecast) {
-          $('.getDate').html("min: "+ Math.round(forecast.daily.data[0].temperatureMin) +" &#8451" +"/ "+"max: "+ Math.round(forecast.daily.data[0].temperatureMax) + " &#8451" + "<br/>" + forecast.daily.data[0].summary);
-        });
-        return darkSkyApi;
+  // Call to the DarkSky API to retrieve JSON
+  var darkSkyApi = $.getJSON(api_call, function(forecast) {
+    $('.getDate').html("min: " + Math.round(forecast.daily.data[0].temperatureMin) + " &#8451" + "/ " + "max: " + Math.round(forecast.daily.data[0].temperatureMax) + " &#8451" + "<br/>" + forecast.daily.data[0].summary);
+  });
+  return darkSkyApi;
 }
 
 // Countdown function
 
 
-  function cdtd() {
-    var xmas = new Date ("July 03, 2019, 19:27:00");
-    var now = new Date();
-    
-    var runAnnounce = document.getElementById("runAnnounce");
-    
-    var contdownSection = document.getElementById("contdownSection");
-    var timeDiff = xmas.getTime() - now.getTime();
-    if (timeDiff <= 0) {
-        clearTimeout(timer);
-        document.getElementById("runAnnounce").style.display = "block";
-        contdownSection.style.display = "none";
-        
-      } else {
-        document.getElementById("runAnnounce").style.display = "none";
-      }
+function cdtd() {
+  var xmas = new Date("July 03, 2019, 19:27:00");
+  var now = new Date();
 
-    var seconds = Math.floor(timeDiff / 1000);
-    var minutes = Math.floor(seconds / 60);
-    var hours = Math.floor(minutes / 60);
-    var days = Math.floor(hours / 24);
-    hours %= 24;
-    minutes %= 60;
-    seconds %= 60;
+  var runAnnounce = document.getElementById("runAnnounce");
 
-    document.getElementById("daysBox").innerHTML = days;
-    document.getElementById("hoursBox").innerHTML = hours;
-    document.getElementById("minsBox").innerHTML = minutes;
-    document.getElementById("secsBox").innerHTML = seconds;
+  var contdownSection = document.getElementById("contdownSection");
+  var timeDiff = xmas.getTime() - now.getTime();
+  if (timeDiff <= 0) {
+    clearTimeout(timer);
+    document.getElementById("runAnnounce").style.display = "block";
+    contdownSection.style.display = "none";
 
-    var timer = setTimeout("cdtd()", 1000);
+  } else {
+    document.getElementById("runAnnounce").style.display = "none";
   }
 
-  cdtd();
+  var seconds = Math.floor(timeDiff / 1000);
+  var minutes = Math.floor(seconds / 60);
+  var hours = Math.floor(minutes / 60);
+  var days = Math.floor(hours / 24);
+  hours %= 24;
+  minutes %= 60;
+  seconds %= 60;
+
+  document.getElementById("daysBox").innerHTML = days;
+  document.getElementById("hoursBox").innerHTML = hours;
+  document.getElementById("minsBox").innerHTML = minutes;
+  document.getElementById("secsBox").innerHTML = seconds;
+
+  var timer = setTimeout("cdtd()", 1000);
+}
+
+cdtd();
