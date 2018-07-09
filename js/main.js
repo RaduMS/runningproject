@@ -56,6 +56,7 @@ button.addEventListener('click', function() {
   weatherReport(seconds);
 });
 
+
 var trail10 = new Track('trail10', 10, 'flat', [{
   lat: 45.6310933,
   lng: 25.64033649
@@ -349,6 +350,8 @@ function weatherReport(seconds) {
 
   api_call = api_call.concat("?units=ca&callback=?")
 
+
+
   // Call to the DarkSky API to retrieve JSON
   var darkSkyApi = $.getJSON(api_call, function(forecast) {
     $('.getDate').html("min: " + Math.round(forecast.daily.data[0].temperatureMin) + " &#8451" + "/ " + "max: " + Math.round(forecast.daily.data[0].temperatureMax) + " &#8451" + "<br/>" + forecast.daily.data[0].summary);
@@ -356,6 +359,14 @@ function weatherReport(seconds) {
   return darkSkyApi;
 }
 
+//meteo trebuie sa fie dupa apelul la DarkSky API ca alfel nu merge
+meteo();
+
+function meteo() {
+  var date = $('#datePicker').val();
+  var seconds = transformDate(date);
+  weatherReport(seconds);
+}
 // Countdown function
 
 
