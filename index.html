@@ -13,6 +13,9 @@
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+  <!-- flipcountdown jquery plugin-->
+  <link rel="stylesheet" type="text/css" href="flipcountdown-master/jquery.flipcountdown.css" />
+
   <!-- Custom fonts for this template -->
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -65,34 +68,26 @@
         <div class="intro-lead-in">Welcome To Our Running App!</div>
         <div class="quote intro-heading text-uppercase">It's Nice To Meet You</div>
         <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#maps">Get Started</a></br>
-
-
-
-
+        <div class="mb-3" id="countdown">
+          <a href="http://bucharest-marathon.com/en/" target="_blank">
+            <p class="font-weight-bold">SIGN FOR: BUCHAREST MARATHON</p>
+          </a>
+          <div class ="table-responsive">
+            <table class="table table-sm p-0 m-0">
+          		<tr scope="row">
+          			<td class="text-right m-0 p-0" scope="col">Days</td>
+          			<td class="text-right m-0 p-0" scope="col">Hours</td>
+          			<td class="text-right m-0 p-0" scope="col">Minutes</td>
+          			<td class="text-right m-0 p-0" scope="col">Seconds</td>
+          		</tr>
+            </table>
+          </div>
+          <div id="retroclockbox1"></div>
+        </div>
       </div>
-
-
-      <div id="contdownSection">
-        <div id="countdownTitle">Time left till the great Event</div>
-        <span class="timeSection">Days remaining: </span><span id="daysBox" class="timeBox">Days</span></br>
-
-        <span class="timeSection">Hours remaining:  </span><span id="hoursBox" class="timeBox"></span></br>
-
-        <span class="timeSection">Minutes remaining:  </span><span id="minsBox" class="timeBox"></span></br>
-
-        <span class="timeSection">Seconds remaining:  </span><span id="secsBox" class="timeBox"></span></br>
-
-
-
-      </div>
-
-      <div id="runAnnounce">It's time to run like a crazy!</div>
-
-
-
-
     </div>
   </header>
+
 
   <!-- Maps -->
   <section id="maps">
@@ -817,6 +812,10 @@
 
   <!-- Plugin JavaScript -->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Plugin flipcountdown -->
+  <!-- <script type="text/javascript" src="flipcountdown-master/jquery.min.js"></script> -->
+  <script type="text/javascript" src="flipcountdown-master/jquery.flipcountdown.js"></script>
 
   <!-- Contact form JavaScript -->
   <script src="js/jqBootstrapValidation.js"></script>

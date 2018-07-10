@@ -1,3 +1,15 @@
+$(document).ready(function(){
+//display current date weather on page laod
+  $('#datebtn').trigger('click');
+
+//display flipcountdown
+  $('#retroclockbox1').flipcountdown({
+    beforeDateTime:'10/14/2018/' + ' 8:30:00'
+  });
+
+});
+
+
 class Track {
   constructor(id, distance, runtype, trackPinPoint) {
     this.id = id;
@@ -358,49 +370,3 @@ function weatherReport(seconds) {
   });
   return darkSkyApi;
 }
-
-//meteo trebuie sa fie dupa apelul la DarkSky API ca alfel nu merge
-meteo();
-
-function meteo() {
-  var date = $('#datePicker').val();
-  var seconds = transformDate(date);
-  weatherReport(seconds);
-}
-// Countdown function
-
-
-function cdtd() {
-  var xmas = new Date("July 03, 2019, 19:27:00");
-  var now = new Date();
-
-  var runAnnounce = document.getElementById("runAnnounce");
-
-  var contdownSection = document.getElementById("contdownSection");
-  var timeDiff = xmas.getTime() - now.getTime();
-  if (timeDiff <= 0) {
-    clearTimeout(timer);
-    document.getElementById("runAnnounce").style.display = "block";
-    contdownSection.style.display = "none";
-
-  } else {
-    document.getElementById("runAnnounce").style.display = "none";
-  }
-
-  var seconds = Math.floor(timeDiff / 1000);
-  var minutes = Math.floor(seconds / 60);
-  var hours = Math.floor(minutes / 60);
-  var days = Math.floor(hours / 24);
-  hours %= 24;
-  minutes %= 60;
-  seconds %= 60;
-
-  document.getElementById("daysBox").innerHTML = days;
-  document.getElementById("hoursBox").innerHTML = hours;
-  document.getElementById("minsBox").innerHTML = minutes;
-  document.getElementById("secsBox").innerHTML = seconds;
-
-  var timer = setTimeout("cdtd()", 1000);
-}
-
-cdtd();

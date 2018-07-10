@@ -1,3 +1,41 @@
+/*Countdown paragraph */
+  .table td {
+    max-width: 50px;
+    overflow: hidden;
+    color: #000;
+  }
+
+  #countdown a {
+    color: #000;
+  }
+
+  @media (max-width: 956px){
+    .table-responsive {
+      display: inline-block;
+      max-width: 50%;
+      overflow: hidden;
+    }
+
+    .table td {
+      width: 50px;
+      overflow: hidden;
+      color: #000;
+    }
+  }
+
+
+    @media (min-width: 956px){
+      #countdown {
+        position: absolute;
+        right: 8%;
+        bottom: 10%
+      }
+
+      header {
+        position: relative;
+      }
+    }
+
 /*Google Maps */
     #cities {
     -webkit-appearance: button;
