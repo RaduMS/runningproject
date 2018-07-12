@@ -1,4 +1,10 @@
-/*Countdown paragraph */
+/*Countdown block */
+  .table-responsive {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+  }
+
   .table td {
     max-width: 50px;
     overflow: hidden;
@@ -9,26 +15,30 @@
     color: #000;
   }
 
-  @media (max-width: 956px){
+/* Media Queries for Responsive Countdown - table */
+  @media (min-width: 420px) and (max-width: 520px){
     .table-responsive {
-      display: inline-block;
-      max-width: 50%;
-      overflow: hidden;
-    }
-
-    .table td {
-      width: 50px;
-      overflow: hidden;
-      color: #000;
+      width: 75%;
     }
   }
 
+  @media (min-width: 521px) and (max-width: 768px){
+    .table-responsive {
+      max-width: 65%;
+    }
+  }
 
-    @media (min-width: 956px){
+  @media (min-width: 768px) and (max-width: 992px){
+    .table-responsive {
+      max-width: 50%;
+    }
+  }
+
+    @media (min-width: 992px){
       #countdown {
         position: absolute;
         right: 8%;
-        bottom: 10%
+        bottom: 10%;
       }
 
       header {

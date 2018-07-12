@@ -1,11 +1,17 @@
 $(document).ready(function(){
-//display current date weather on page laod
-  $('#datebtn').trigger('click');
+  //display flipcountdown
+    $('#retroclockbox1').flipcountdown({
+      beforeDateTime:'10/14/2018/' + ' 8:30:00'
+    });
 
-//display flipcountdown
-  $('#retroclockbox1').flipcountdown({
-    beforeDateTime:'10/14/2018/' + ' 8:30:00'
+  //bootstrap datepicker
+  $('#dateTimePicker').datetimepicker({
+    format: 'L',
+    defaultDate: new Date()
   });
+
+  //display current date weather on page laod
+    $('#datebtn').trigger('click');
 
 });
 
@@ -59,11 +65,15 @@ function changeQuote() {
 }
 //
 //
+
+
+
+
 // weather event
-document.getElementById('datePicker').valueAsDate = new Date();
+
 var button = document.getElementById('datebtn');
 button.addEventListener('click', function() {
-  var date = $('#datePicker').val();
+  var date = $('input[name="datePicker"]').val();
   var seconds = transformDate(date);
   weatherReport(seconds);
 });
