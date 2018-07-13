@@ -194,7 +194,7 @@ function createTrackSelectionList(allCities) {
       var trackItem = tracks[i];
       km.push(trackItem.distance);
     }
-    // le filtrez ca sa imi ramana numai valori unice
+    //le filtrez ca sa imi ramana numai valori unice
     var uniqueArray = km.filter(function(item, position) {
       return km.indexOf(item) == position;
     });
@@ -372,11 +372,39 @@ function weatherReport(seconds) {
 
   api_call = api_call.concat("?units=ca&callback=?")
 
-
-
   // Call to the DarkSky API to retrieve JSON
   var darkSkyApi = $.getJSON(api_call, function(forecast) {
     $('.getDate').html("min: " + Math.round(forecast.daily.data[0].temperatureMin) + " &#8451" + "/ " + "max: " + Math.round(forecast.daily.data[0].temperatureMax) + " &#8451" + "<br/>" + forecast.daily.data[0].summary);
   });
   return darkSkyApi;
 }
+
+//Contact form - mailto() - method
+
+function getMailtoUrl() {
+  var email = 'VAST_runningApp@yahoo.com'; //Password to email = 123running
+  var subject = $('#subject').val();
+  var bodyMessage = $('#message').val();
+  var phoneMsg = encodeURIComponent('Phone number: ');
+  var phone = '%0D%0A%0D%0A' + phoneMsg + $('#phone').val();
+
+    var args = [];
+    if (typeof subject !== 'undefined') {
+        args.push('subject=' + encodeURIComponent(subject));
+    }
+    if ((typeof bodyMessage !== 'undefined') && (typeof phone !== 'undefined')) {
+        args.push('body=' + encodeURIComponent(bodyMessage) + phone)
+    }
+
+    var url = 'mailto:' + encodeURIComponent(email);
+    if (args.length > 0) {
+        url += '?' + args.join('&');
+    }
+    return url;
+}
+
+$('#sendMessageButton').click(function() {
+    var mailto_link = getMailtoUrl();
+    win = window.open(mailto_link, 'emailToVast');
+    if (win && win.open && !win.closed) win.close();
+});
