@@ -17,6 +17,7 @@ mailController(app);
 app.use(express.static(__dirname))
 
 //lissen to port
+console.log('You are listening to port' + port);
 app.listen(port, function() {
   console.log('app is running');
 })
