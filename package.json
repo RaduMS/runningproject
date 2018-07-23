@@ -34,7 +34,8 @@
         "express": "^4.16.3",
         "font-awesome": "4.7.0",
         "jquery": "3.3.1",
-        "jquery.easing": "^1.4.1"
+        "jquery.easing": "^1.4.1",
+        "nodemailer": "^4.6.7"
     },
     "devDependencies": {
         "browser-sync": "2.24.3",
