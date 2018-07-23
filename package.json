@@ -3,6 +3,10 @@
     "name": "startbootstrap-agency",
     "version": "4.1.1",
     "description": "Agency is a one page HTML theme for Bootstrap.",
+    "main": "app.js",
+    "scripts": {
+      "start": "node ./app.js"
+    },
     "keywords": [
         "css",
         "sass",
@@ -24,10 +28,6 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/BlackrockDigital/startbootstrap-agency.git"
-    },
-    "main": "app.js",
-    "scripts": {
-      "start": "node ./app.js"
     },
     "dependencies": {
         "bootstrap": "4.1.1",
