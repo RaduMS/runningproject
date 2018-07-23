@@ -1,8 +1,8 @@
-$(document).ready(function(){
+$(document).ready(function() {
   //display flipcountdown
-    $('#retroclockbox1').flipcountdown({
-      beforeDateTime:'10/14/2018/' + ' 8:30:00'
-    });
+  $('#retroclockbox1').flipcountdown({
+    beforeDateTime: '10/14/2018/' + ' 8:30:00'
+  });
 
   //bootstrap datepicker
   $('#dateTimePicker').datetimepicker({
@@ -11,7 +11,7 @@ $(document).ready(function(){
   });
 
   //display current date weather on page laod
-    $('#datebtn').trigger('click');
+  $('#datebtn').trigger('click');
 
 });
 
@@ -378,33 +378,3 @@ function weatherReport(seconds) {
   });
   return darkSkyApi;
 }
-
-//Contact form - mailto() - method
-
-function getMailtoUrl() {
-  var email = 'VAST_runningApp@yahoo.com'; //Password to email = 123running
-  var subject = $('#subject').val();
-  var bodyMessage = $('#message').val();
-  var phoneMsg = encodeURIComponent('Phone number: ');
-  var phone = '%0D%0A%0D%0A' + phoneMsg + $('#phone').val();
-
-    var args = [];
-    if (typeof subject !== 'undefined') {
-        args.push('subject=' + encodeURIComponent(subject));
-    }
-    if ((typeof bodyMessage !== 'undefined') && (typeof phone !== 'undefined')) {
-        args.push('body=' + encodeURIComponent(bodyMessage) + phone)
-    }
-
-    var url = 'mailto:' + encodeURIComponent(email);
-    if (args.length > 0) {
-        url += '?' + args.join('&');
-    }
-    return url;
-}
-
-$('#sendMessageButton').click(function() {
-    var mailto_link = getMailtoUrl();
-    win = window.open(mailto_link, 'emailToVast');
-    if (win && win.open && !win.closed) win.close();
-});

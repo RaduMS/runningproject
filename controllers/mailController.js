@@ -28,10 +28,10 @@ module.exports = function(app) {
   app.post('/email', urlencodedParser, function(req, res) {
     // get data from the view and added to mangodb
     console.log(req.body);
-    var bodyMail = req.body.text + ' Email: ' + req.body.from + ' Phone: ' + req.body.phone;
-    var htmlBodyMail = req.body.text + ' <br><br> <b> Email: </b>' + req.body.from + ' <br><br><b> Phone: </b>' + req.body.phone;
+    var bodyMail = req.body.message + ' Email: ' + req.body.email + ' Phone: ' + req.body.phone;
+    var htmlBodyMail = req.body.message + ' <br><br> <b> Email: </b>' + req.body.email + ' <br><br><b> Phone: </b>' + req.body.phone;
     var mailOptions = {
-      from: req.body.from,
+      from: req.body.email,
       to: 'vastrunningapp@gmail.com',
       subject: req.body.subject,
       text: bodyMail,
