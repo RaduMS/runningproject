@@ -45,5 +45,13 @@ module.exports = function(app) {
         console.log('Email sent: ' + info.response);
       }
     });
+
+    res.writeHead(200, {
+      'Content-Type': 'application/json'
+    });
+    var mail = {
+      sended: true
+    };
+    res.end(JSON.stringify(mail));
   });
 }
