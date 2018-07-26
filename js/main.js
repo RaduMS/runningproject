@@ -413,6 +413,8 @@ $(function () {
         var spotifyApi = new SpotifyWebApi();
         spotifyApi.setAccessToken(token);
         searchSpotify();
+        var $musicLink = $('a[href="#music"]');
+        $musicLink.trigger('click');
     }
 
     $('#login').on('click', loginHandler);
@@ -447,6 +449,7 @@ $(function () {
                     }
                     return initial;
                 }, {});
+
             result = hash.access_token;
             window.location.hash = '';
         }
@@ -481,13 +484,15 @@ $(function () {
                 + '<a href="javascript:;">' + results[i].name + '</a>'
                 + '</li>'
         }
-        $('#searchResults').append(items);
+        $('#searchResults').html(items);
     }
 
     function searchResultsHandler(e) {
         var uri = $(e.target).closest('li').data('uri');
         updatePlayer(uri);
-        $(window).scrollTop(0);
+        // $(window).scrollTop(0);
+        var $musicLink = $('a[href="#music"]');
+        $musicLink.trigger('click');
     }
 
     function updatePlayer(uri) {
