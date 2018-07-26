@@ -28,9 +28,7 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
   <!-- Custom styles for this template -->
-  <link href="css/agency.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
-
 
 </head>
 
@@ -52,7 +50,7 @@
             <a class="nav-link js-scroll-trigger" href="#routes">Routes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            <a class="nav-link js-scroll-trigger" href="#music">Music</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#team">Team</a>
@@ -71,7 +69,7 @@
       <div class="intro-text">
         <div class="intro-lead-in">Welcome To Our Running App!</div>
         <div class="quote intro-heading text-uppercase">It's Nice To Meet You</div>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#maps">Get Started</a></br>
+        <a class="btn btn-secondary btn-xl text-uppercase js-scroll-trigger" href="#maps">Get Started</a></br>
         <div class="mb-3 flipcountdown" id="countdown">
           <a href="http://bucharest-marathon.com/en/" target="_blank">
             <p class="font-weight-bold">SIGN UP FOR: BUCHAREST MARATHON</p>
@@ -100,13 +98,18 @@
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Maps</h2>
           <h3 class="section-subheading text-muted mb-0">Select where you want to run!</h3>
-          <select id="cities" class="selectH custom-select mb-3" type="text" name="cities" value="" placeholder="Choose a city"></select>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text bg-secondary text-white" for="cities">Running areas</label>
+            </div>
+            <select id="cities" class="custom-select" type="text" name="cities" value="" placeholder="Choose a city"></select>
+          </div>
         </div>
       </div>
 
       <div class="row text-center">
         <div class="col-md-12">
-          <div id="directionsPanel">
+          <div id="directionsPanel" class="bg-light">
             <div class="border" id="map"></div>
             <div class="" id="right-panel">
               <div class="container">
@@ -147,8 +150,8 @@
 
       <div class="row text-center">
         <div class="col-md-4 mt-3">
-          <button class="btn btn-primar" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
-              <img class="flatTrack mx-auto rounded-circle" src="img/flatTrack.jpg" alt="flat trail">
+          <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
+              <img class="flatTrack mx-auto rounded-circle" src="img/trail/flatTrack.jpg" alt="flat trail">
             </button>
           <h4 class="service-heading">Flat</h4>
           <div class="collapse multi-collapse" id="multiCollapseExample1">
@@ -163,14 +166,14 @@
         </div>
 
         <div class="col-md-4 mt-3">
-          <button class="btn" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
-              <img class="trailTrack mx-auto rounded-circle" src="img/trailTrack2.jpg" alt="trail track">
+          <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+              <img class="trailTrack mx-auto rounded-circle" src="img/trail/trailTrack2.jpg" alt="trail track">
             </button>
           <h4 class="service-heading">Trail</h4>
           <div class="collapse multi-collapse" id="multiCollapseExample2">
             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
             <div>
-              <select class="selectH custom-select js-scroll-trigger" id="trailTrackOption" name="trasee" placeholder="Select Trail">
+              <select class="custom-select js-scroll-trigger" id="trailTrackOption" name="trasee" placeholder="Select Trail">
                   <option class="" value="trail5">Traseul1></option>
                   <option class="" value="trail10">Traseul2</option>
                 </select>
@@ -179,8 +182,8 @@
         </div>
 
         <div class="col-md-4 mt-3">
-          <button class="btn" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">
-              <img class="combinedTrack mx-auto rounded-circle" src="img/combinedTrack.jpg" alt="combined track">
+          <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">
+              <img class="combinedTrack mx-auto rounded-circle" src="img/trail/combinedTrack.jpg" alt="combined track">
             </button>
           <h4 class="service-heading">Combined</h4>
           <div class="collapse multi-collapse" id="multiCollapseExample3">
@@ -197,103 +200,41 @@
     </div>
   </section>
 
-  <!-- Portfolio Grid -->
-  <!-- <section class="bg-light" id="portfolio">
+  <!-- Music Grid -->
+  <section class="" id="music">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Portfolio</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase">Music</h2>
+            <h3 class="section-subheading text-muted">Listen to one of our playlists while you run.</h3>
+            <button class="btn btn-secondary btn-lg btn-block mb-2" id="login">Login to Spotify</button>
           </div>
         </div>
+
         <div class="row">
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Threads</h4>
-              <p class="text-muted">Illustration</p>
+          <div class="col-sm-12">
+            <div id="spotify" class="embed-responsive embed-responsive-21by9">
+              <iframe id="resultIframe" class="embed-responsive-item" src="https://open.spotify.com/embed?uri=spotify:user:public:playlist:37i9dQZF1DX0wiundViT27" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
             </div>
           </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/02-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Explore</h4>
-              <p class="text-muted">Graphic Design</p>
+
+        <div class="card-body">
+          <h4>Explore the possibilities</h4>
+          <p class="text-muted">lorem ipsum bla bla bla</p>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Playlist</span>
+            </div>
+            <input id="query" class="form-control" type="text" placeholder="Search..." value="running"/>
+            <div class="input-group-append">
+              <button id="searchButton" class="btn btn-secondary" type="button">Search</button>
             </div>
           </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/03-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Finish</h4>
-              <p class="text-muted">Identity</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/04-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Lines</h4>
-              <p class="text-muted">Branding</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/05-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Southwest</h4>
-              <p class="text-muted">Website Design</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Window</h4>
-              <p class="text-muted">Photography</p>
-            </div>
-          </div>
+          <ul id="searchResults" class="list-group list-group-flush"></ul>
         </div>
       </div>
-    </section> -->
+    </div>
+  </section>
 
   <!-- About -->
   <!-- <section id="about">
@@ -465,17 +406,17 @@
             <p class="text-muted">Front-End Web Developer</p>
             <ul class="list-inline social-buttons">
               <li class="list-inline-item">
-                <a href="#">
+                <a href="https://github.com/TaniaUngureanu">
                     <i class="fa fa-github"></i>
                   </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
+                <a href="https://www.facebook.com/tania.ungureanu.3">
                     <i class="fa fa-facebook"></i>
                   </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
+                <a href="https://www.linkedin.com/in/taniaungureanu/">
                     <i class="fa fa-linkedin"></i>
                   </a>
               </li>
@@ -490,35 +431,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Clients -->
-  <!-- <section class="py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
 
   <!-- Contact -->
   <section id="contact">
@@ -556,7 +468,7 @@
               <div class="clearfix"></div>
               <div class="col-lg-12 text-center">
                 <div id="success"></div>
-                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                <button id="sendMessageButton" class="btn btn-secondary btn-xl text-uppercase" type="submit">Send Message</button>
               </div>
             </div>
           </form>
@@ -826,23 +738,22 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Plugin flipcountdown -->
-  <!-- <script type="text/javascript" src="flipcountdown-master/jquery.min.js"></script> -->
   <script type="text/javascript" src="flipcountdown-master/jquery.flipcountdown.js"></script>
 
   <!-- Plugin datepicker -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
 
+  <!-- Plugin Spotify -->
+  <script type="text/javascript" src="js/spotify-web-api.js"></script>
 
-  <!-- Contact form JavaScript -->
-  <script src="js/jqBootstrapValidation.js"></script>
   <script src="js/contact_me.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="js/agency.js"></script>
+  <script src="js/template.js"></script>
   <script src="js/main.js"></script>
 
-  <!--API scripts-->
+  <!--API Google maps - scripts-->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPKO5P4fSH9AQPSzvXGmDMECNIPWxHv_4&callback=initMap">
   </script>
 
