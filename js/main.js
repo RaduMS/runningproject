@@ -36,36 +36,25 @@ class City {
 
 
 // Display inspirational quote
-var myQuote = $('.quote')[0];
-setTimeout(showQuote, 300);
-
-var myTimer = setInterval(changeQuote, 2000);
-
-//Stop the displaying of phrases if clicked.
-myQuote.onclick = function() {
-  clearInterval(myTimer);
-  // myMessage.innerHTML = ""; // daca scoatem linia asta de cod mesajul va ramane cel care este displayed cu totul
-}
-
-//Inspirational quotes - functions
-
-function showQuote() {
-  myQuote.className = "quote onDisplay intro-heading text-uppercase";
-}
-
-//Display all inspirational phrases each at a time
-var phrases = ["Run faster", "Be Braver", "Be Bolder", "Trust your self", "Be the best you can be"];
+var myQuote = $('.quote');
 var counter = 0;
+var phrases = ["Run faster", "Be Braver", "Be Bolder", "Trust your self", "Be the best you can be"];
+
+changeQuote();
 
 function changeQuote() {
-  if (counter >= phrases.length) {
-    counter = 0;
+  if (counter < phrases.length) {
+    myQuote.fadeOut(1000, function(){
+      myQuote.html(phrases[counter]);
+      myQuote.fadeIn(1000, function() {
+        counter++;
+        changeQuote();
+      });
+    })
   }
-  myQuote.innerHTML = phrases[counter];
-  counter++;
 }
-//
-//
+
+
 // Weather event
 
 var button = document.getElementById('datebtn');
@@ -329,18 +318,19 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, arr) {
       summaryPanel.innerHTML = '';
       var distance = 0;
       var distanceInKm = 0;
+      // debugger;
       // For each route, display summary information.
       for (var i = 0; i < route.legs.length; i++) {
         var routeSegment = i + 1;
-        summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
-          '</b><br>';
-        summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-        summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+        summaryPanel.innerHTML += '<strong>Route Segment ' + routeSegment +
+          ': </strong><br>';
+        // summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+        // summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
         summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
         distance += route.legs[i].distance.value;
       }
       distanceInKm = Math.round(distance / 10) / 100;
-      summaryPanel.innerHTML += "Total distance: " + distanceInKm + 'km';
+      summaryPanel.innerHTML += "<strong>Total distance: </strong>" + distanceInKm + ' km';
     } else {
       window.alert('Directions request failed due to ' + status);
     }

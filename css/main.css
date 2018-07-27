@@ -193,6 +193,33 @@ header.masthead .intro-text .intro-heading {
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+/* .intro-lead-in {
+  animation-duration: 3s;
+  animation-name: slidein;
+} */
+
+/* .intro-heading {
+  animation-duration: 4s;
+  animation-name: fadeInOut;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fadeInOut {
+  0%    { opacity: 0; }
+  100%  { opacity: 1; }
+} */
+/* 
+@keyframes slidein {
+  from    {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to     {
+    margin-left: 0%;
+    width: 100%; }
+  } */
+
 @media (min-width: 768px) {
   header.masthead .intro-text {
     padding-top: 300px;
@@ -677,7 +704,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 /* Display Quote - css */
     .quote {
       opacity: 0;
-      transition: opacity 0.7s;
+      /* transition: opacity 0.7s; */
     }
 
     .quote.onDisplay {
