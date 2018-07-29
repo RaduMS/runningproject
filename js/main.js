@@ -469,4 +469,4 @@ $(function() {
 });
 $.cookie("example", "foo bla bal bal ", {});
 console.log($.cookie);
-$.removeCookie("example");
+// $.removeCookie("example");
