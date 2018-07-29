@@ -19,12 +19,16 @@ module.exports = function(app) {
   app.get('/', function(req, res) {
     if (req.url == '/') {
       res.writeHead(200, {
+        // 'Set-Cookie': 'mycookie=test',
         'Content-Type': 'text/html'
       });
       console.log('ceva');
       fs.createReadStream('./index.html').pipe(res);
     }
   });
+  // app.get('/cookie', function(req, res) {
+  //   res.cookie('mySecondCookie', 'looks Good traing to anderstand');
+  // });
   app.post('/email', urlencodedParser, function(req, res) {
     // get data from the view and added to mangodb
     console.log(req.body);
