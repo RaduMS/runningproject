@@ -234,7 +234,6 @@ function initMap() {
   });
   // map displayd on entering page
   directionsDisplay.setMap(map);
-  console.log(directionsDisplay);
 
   //
   // cand se schimba selectu de la orase
@@ -468,5 +467,6 @@ $(function() {
   }
 });
 $.cookie("example", "foo bla bal bal ", {});
-console.log($.cookie);
+console.log($.cookie('example'));
 // $.removeCookie("example");
+document.cookie = "username=John Doe; expires=Thu, 18 Dec 2019 12:00:00 UTC; path=/";

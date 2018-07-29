@@ -15,22 +15,16 @@ var transporter = nodemailer.createTransport({
 });
 
 module.exports = function(app) {
-  // app.set('views', path.join(__dirname, 'views'))
   app.get('/', function(req, res) {
     if (req.url == '/') {
       res.writeHead(200, {
-        // 'Set-Cookie': 'mycookie=test',
         'Content-Type': 'text/html'
       });
       console.log('ceva');
       fs.createReadStream('./index.html').pipe(res);
     }
   });
-  // app.get('/cookie', function(req, res) {
-  //   res.cookie('mySecondCookie', 'looks Good traing to anderstand');
-  // });
   app.post('/email', urlencodedParser, function(req, res) {
-    // get data from the view and added to mangodb
     console.log(req.body);
     var bodyMail = req.body.message + ' Email: ' + req.body.email + ' Phone: ' + req.body.phone;
     var htmlBodyMail = req.body.message + ' <br><br> <b> Email: </b>' + req.body.email + ' <br><br><b> Phone: </b>' + req.body.phone;
