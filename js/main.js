@@ -430,6 +430,9 @@ var brasovMaratonMaraton = new Track('Brasov Maraton Maraton', 38, 'trail', [{
   lat: 45.59593662,
   lng: 25.56624568
 }, {
+  lat: 45.59003772,
+  lng: 25.55730938
+}, {
   lat: 45.57391729,
   lng: 25.55048584
 }, {
