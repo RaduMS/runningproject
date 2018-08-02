@@ -48,6 +48,15 @@ section h3.section-subheading {
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+section p.section-subheading {
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 75px;
+  text-transform: none;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 @media (min-width: 768px) {
   section {
     padding: 20px 0;
@@ -208,7 +217,7 @@ header.masthead .intro-text .intro-heading {
   0%    { opacity: 0; }
   100%  { opacity: 1; }
 } */
-/* 
+/*
 @keyframes slidein {
   from    {
     margin-left: 100%;
@@ -433,6 +442,10 @@ header.masthead .intro-text .intro-heading {
   }
 } */
 
+.routesSection {
+  padding-top: 30px;
+  padding-bottom: 180px;
+}
 .team-member {
   margin-bottom: 50px;
   text-align: center;
@@ -528,6 +541,7 @@ footer span.copyright {
   line-height: 40px;
   text-transform: none;
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
 }
 
 footer ul.quicklinks {

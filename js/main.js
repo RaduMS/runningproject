@@ -38,15 +38,15 @@ class City {
 // Display inspirational quote
 var myQuote = $('.quote');
 var counter = 0;
-var phrases = ["Run faster", "Be Braver", "Be Bolder", "Trust your self", "Be the best you can be"];
+var phrases = ["As we run, we become", "Run fast", "Be braver", "Be bolder", "Trust yourself", "Be the best you can be", "The long run is what puts the tiger in the cat", "Running is supposed to be hard… The hard is what makes it great"];
 
 changeQuote();
 
 function changeQuote() {
   if (counter < phrases.length) {
-    myQuote.fadeOut(1000, function(){
+    myQuote.fadeOut(2000, function(){
       myQuote.html(phrases[counter]);
-      myQuote.fadeIn(1000, function() {
+      myQuote.fadeIn(2000, function() {
         counter++;
         changeQuote();
       });
