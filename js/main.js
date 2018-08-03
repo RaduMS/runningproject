@@ -456,29 +456,90 @@ var brasovMaratonMaraton = new Track('Brasov Maraton Maraton', 38, 'trail', [{
   lng: 25.58856986
 }]);
 
-var peVale = new Track('Pe Vale', 5, 'trail', [{
+var peVale = new Track('Cros Pe Vale', 5, 'trail', [{
   lat: 45.58979548,
   lng: 25.46469236
 }, {
-  lat: 45.58321815,
-  lng: 25.50580526
+  lat: 45.58659861,
+  lng: 25.49882239
 }, {
   lat: 45.58925491,
   lng: 25.47606493
 }]);
-var peVale2 = new Track('Pe Vale2', 5, 'combined', [{
-  lat: 45.58925491,
-  lng: 25.47606493
+var poianaPeVale = new Track('Cros Poiana Pe Vale', 10, 'trail', [{
+  lat: 45.59683817,
+  lng: 25.54754797
 }, {
-  lat: 45.58321815,
-  lng: 25.50580526
+  lat: 45.5907202,
+  lng: 25.46558377
+}]);
+var semimaratonPeVale = new Track('Poiana Pe Vale', 21, 'trail', [{
+  lat: 45.5907202,
+  lng: 25.46558377
 }, {
+  lat: 45.59545028,
+  lng: 25.55254704
+}, {
+  lat: 45.5907202,
+  lng: 25.46558377
+}]);
+var fpeVale = new Track('Cros Pe Vale', 5, 'flat', [{
   lat: 45.58979548,
   lng: 25.46469236
+}, {
+  lat: 45.58659861,
+  lng: 25.49882239
+}, {
+  lat: 45.58925491,
+  lng: 25.47606493
+}]);
+var fpoianaPeVale = new Track('Cros Poiana Pe Vale', 10, 'flat', [{
+  lat: 45.59683817,
+  lng: 25.54754797
+}, {
+  lat: 45.5907202,
+  lng: 25.46558377
+}]);
+var fsemimaratonPeVale = new Track('Poiana Pe Vale', 21, 'flat', [{
+  lat: 45.5907202,
+  lng: 25.46558377
+}, {
+  lat: 45.59545028,
+  lng: 25.55254704
+}, {
+  lat: 45.5907202,
+  lng: 25.46558377
+}]);
+var cpeVale = new Track('Cros Pe Vale', 5, 'combined', [{
+  lat: 45.58979548,
+  lng: 25.46469236
+}, {
+  lat: 45.58659861,
+  lng: 25.49882239
+}, {
+  lat: 45.58925491,
+  lng: 25.47606493
+}]);
+var cpoianaPeVale = new Track('Cros Poiana Pe Vale', 10, 'combined', [{
+  lat: 45.59683817,
+  lng: 25.54754797
+}, {
+  lat: 45.5907202,
+  lng: 25.46558377
+}]);
+var csemimaratonPeVale = new Track('Poiana Pe Vale', 21, 'combined', [{
+  lat: 45.5907202,
+  lng: 25.46558377
+}, {
+  lat: 45.59545028,
+  lng: 25.55254704
+}, {
+  lat: 45.5907202,
+  lng: 25.46558377
 }]);
 
 var brasovTracks = [crosTelekom10, crosTelekom5, semimaratonTelekom, maratonTelekom, brasovMaratonCros, brasovMaratonSemimaraton, brasovMaratonMaraton];
-var rasnovTracks = [peVale, peVale2];
+var rasnovTracks = [peVale, poianaPeVale, semimaratonPeVale, fpeVale, fpoianaPeVale, fsemimaratonPeVale, cpeVale, cpoianaPeVale, csemimaratonPeVale];
 
 var brasov = new City('Brasov', brasovTracks, {
   lat: 45.6579755,
