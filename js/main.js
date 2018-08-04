@@ -38,7 +38,7 @@ class City {
 // Display inspirational quote
 var myQuote = $('.quote');
 var counter = 0;
-var phrases = ["As we run, we become", "Run fast", "Be braver", "Be bolder", "Trust yourself", "Be the best you can be", "The long run is what puts the tiger in the cat", "Running is supposed to be hard… The hard is what makes it great"];
+var phrases = ["As we run, </br>we become", "Run </br>fast", "Be </br>braver", "Be </br>bolder", "Trust </br>yourself", "Be the best </br>you can be", "The long run is what puts the tiger in the cat"];
 
 changeQuote();
 
@@ -75,6 +75,7 @@ var trail10 = new Track('trail10', 10, 'flat', [{
   lat: 45.68004765,
   lng: 25.64445637
 }]);
+
 var trail5 = new Track('trail5', 5, 'flat', [{
   lat: 45.66085497,
   lng: 25.59501789
@@ -95,6 +96,7 @@ var peVale = new Track('Pe Vale', 5, 'trail', [{
   lat: 45.58925491,
   lng: 25.47606493
 }]);
+
 var peVale2 = new Track('Pe Vale2', 5, 'combined', [{
   lat: 45.58925491,
   lng: 25.47606493
@@ -263,7 +265,7 @@ function initMap() {
       directionsDisplay.setMap(map);
       var selectedTrack = displaySelectedTrack(idSelectionList);
       calculateAndDisplayRoute(directionsService, directionsDisplay, selectedTrack.trackPinPoint);
-      var $maplink = $('a[href="#maps"]');
+      var $maplink = $('a[href="#mapSection"]');
       $maplink.trigger('click');
     });
   }
