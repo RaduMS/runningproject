@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="shortcut icon" href="man_running2_4wy_icon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="img/man_running2_4wy_icon.ico" type="image/x-icon">
   <title>Running Application</title>
 
   <!-- Bootstrap core CSS -->
@@ -19,14 +19,14 @@
   <!-- Bootstrap datepicker-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
 
-  <!-- Custom fonts for this template -->
+  <!-- Custom fonts for this application -->
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-  <!-- Custom styles for this template -->
+  <!-- Custom styles for this application -->
   <link href="css/main.css" rel="stylesheet">
 
 </head>
@@ -37,9 +37,9 @@
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top"> VAST Running App</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
@@ -108,7 +108,6 @@
 
       <div class="row mb-4 mt-4">
         <div class="col-lg-12 text-center">
-
           <h3 class="section-subheading text-muted">Whether you are a newbie runner or an experienced one, you can find below some suggested running tracks to help you with your training</h3>
         </div>
       </div>
@@ -116,48 +115,39 @@
       <div class="row text-center">
         <div class="col-md-4 mt-3">
           <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
-              <img class="flatTrack mx-auto rounded-circle tracks grayscaleImage" src="img/trail/flatTrack.jpg" alt="flat trail">
-            </button>
+            <img class="flatTrack mx-auto rounded-circle tracks grayscaleImage" src="img/trail/flatTrack.jpg" alt="flat trail">
+          </button>
           <h4 class="service-heading">Flat</h4>
           <div class="collapse multi-collapse" id="multiCollapseExample1">
             <p class="text-muted">Road running - ideal for beginners and for those who need constant training</p>
             <div>
-              <select class="selectH custom-select js-scroll-trigger" id="flatTrackOptions" name="trasee" placeholder="Select Trail">
-                  <option class="" value="trail5">Traseul1></option>
-                  <option class="" value="trail10">Traseul2</option>
-                </select>
+              <select class="selectH custom-select js-scroll-trigger" id="flatTrackOptions"></select>
             </div>
           </div>
         </div>
 
         <div class="col-md-4 mt-3">
           <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
-              <img class="trailTrack mx-auto rounded-circle grayscaleImage" src="img/trail/trailTrack2.jpg" alt="trail track">
-            </button>
+            <img class="trailTrack mx-auto rounded-circle grayscaleImage" src="img/trail/trailTrack2.jpg" alt="trail track">
+          </button>
           <h4 class="service-heading">Trail</h4>
           <div class="collapse multi-collapse" id="multiCollapseExample2">
             <p class="text-muted">Mountain running - ideal for the mountain junkies who like to feel the adrenaline</p>
             <div>
-              <select class="custom-select js-scroll-trigger" id="trailTrackOption" name="trasee" placeholder="Select Trail">
-                  <option class="" value="trail5">Traseul1></option>
-                  <option class="" value="trail10">Traseul2</option>
-                </select>
+              <select class="custom-select js-scroll-trigger" id="trailTrackOption"></select>
             </div>
           </div>
         </div>
 
         <div class="col-md-4 mt-3">
           <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">
-              <img class="combinedTrack mx-auto rounded-circle grayscaleImage" src="img/trail/combinedTrack.jpg" alt="combined track">
-            </button>
+            <img class="combinedTrack mx-auto rounded-circle grayscaleImage" src="img/trail/combinedTrack.jpg" alt="combined track">
+          </button>
           <h4 class="service-heading">Combined</h4>
           <div class="collapse multi-collapse" id="multiCollapseExample3">
             <p class="text-muted">Road and mountain running - ideal for those who want to combine the running styles</p>
             <div>
-              <select class="selectH custom-select js-scroll-trigger" id="combinedTrackOptions" name="trasee" placeholder="Select Trail">
-                  <option class="" value="trail5">Traseul1></option>
-                  <option class="" value="trail10">Traseul2</option>
-                </select>
+              <select class="selectH custom-select js-scroll-trigger" id="combinedTrackOptions"></select>
             </div>
           </div>
         </div>
@@ -168,11 +158,11 @@
 <!-- Maps -->
 <section class="routesSection bg-light" id="routes">
   <div class="container">
-      <div class="row text-center">
-        <div class="col-md-12">
-          <h2 class="section-heading text-uppercase mt-5 mb-5" id="mapSection">Maps</h2>
-          <div id="directionsPanel" class="bg-light">
-            <div class="border" id="map"></div>
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h2 class="section-heading text-uppercase mt-5 mb-5" id="mapSection">Maps</h2>
+        <div id="directionsPanel" class="bg-light">
+          <div class="border" id="map"></div>
             <div class="" id="right-panel">
               <div class="container">
                 <div class="d-flex flex-sm-column row">
@@ -213,13 +203,12 @@
           </div>
         </div>
 
-
         <div class="row">
           <div class="col-sm-12">
             <div id="spotify" class="embed-responsive embed-responsive-21by9">
               <iframe id="resultIframe" class="embed-responsive-item" src="https://open.spotify.com/embed?uri=spotify:user:public:playlist:37i9dQZF1DX0wiundViT27" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
           </div>
-        </div>
 
         <div class="card-body">
           <h4>Explore the countless possibilities</h4>
@@ -245,9 +234,10 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-          <h3 class="section-subheading text-muted">We are the Fantastic Four who brought you this amazing application</h3>
+            <h3 class="section-subheading text-muted">We are the Fantastic Four who brought you this amazing application</h3>
         </div>
       </div>
+
       <div class="row">
         <div class="col-sm-3">
           <div class="team-member">
@@ -257,22 +247,23 @@
             <ul class="list-inline social-buttons">
               <li class="list-inline-item">
                 <a href="https://github.com/levitchiv" target="_blank">
-                    <i class="fa fa-github"></i>
-                  </a>
+                  <i class="fa fa-github"></i>
+                </a>
               </li>
               <li class="list-inline-item">
                 <a href="https://www.facebook.com/vadim.levitchi" target="_blank">
-                    <i class="fa fa-facebook"></i>
-                  </a>
+                  <i class="fa fa-facebook"></i>
+                </a>
               </li>
               <li class="list-inline-item">
                 <a href="https://www.linkedin.com/in/vadim-levi%C5%A3chi-2a90bb133/" target="_blank">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
+                  <i class="fa fa-linkedin"></i>
+                </a>
               </li>
             </ul>
           </div>
         </div>
+
         <div class="col-sm-3">
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="img/team/alina_621x660.JPG" alt="">
@@ -281,22 +272,23 @@
             <ul class="list-inline social-buttons">
               <li class="list-inline-item">
                 <a href="https://github.com/apryllya" target="_blank">
-                    <i class="fa fa-github"></i>
-                  </a>
+                  <i class="fa fa-github"></i>
+                </a>
               </li>
               <li class="list-inline-item">
                 <a href="http://facebook.com/alina.m.ivan" target="_blank">
-                    <i class="fa fa-facebook"></i>
-                  </a>
+                  <i class="fa fa-facebook"></i>
+                </a>
               </li>
               <li class="list-inline-item">
                 <a href="https://www.linkedin.com/in/alinaivan/" target="_blank">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
+                  <i class="fa fa-linkedin"></i>
+                </a>
               </li>
             </ul>
           </div>
         </div>
+
         <div class="col-sm-3">
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="img/team/sebi_615x659.jpg" alt="">
@@ -305,22 +297,23 @@
             <ul class="list-inline social-buttons">
               <li class="list-inline-item">
                 <a href="https://github.com/RaduMS" target="_blank">
-                    <i class="fa fa-github"></i>
-                  </a>
+                  <i class="fa fa-github"></i>
+                </a>
               </li>
               <li class="list-inline-item">
                 <a href="https://www.facebook.com/profile.php?id=100008500782831" target="_blank">
-                    <i class="fa fa-facebook"></i>
-                  </a>
+                  <i class="fa fa-facebook"></i>
+                </a>
               </li>
               <li class="list-inline-item">
                 <a href="https://www.linkedin.com/in/sebastian-radu-72a642153/" target="_blank">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
+                  <i class="fa fa-linkedin"></i>
+                </a>
               </li>
             </ul>
           </div>
         </div>
+
         <div class="col-sm-3">
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="img/team/tania_619x660.jpg" alt="">
@@ -329,23 +322,24 @@
             <ul class="list-inline social-buttons">
               <li class="list-inline-item">
                 <a href="https://github.com/TaniaUngureanu" target="_blank">
-                    <i class="fa fa-github"></i>
-                  </a>
+                  <i class="fa fa-github"></i>
+                </a>
               </li>
               <li class="list-inline-item">
                 <a href="https://www.facebook.com/tania.ungureanu.3" target="_blank">
-                    <i class="fa fa-facebook"></i>
-                  </a>
+                  <i class="fa fa-facebook"></i>
+                </a>
               </li>
               <li class="list-inline-item">
                 <a href="https://www.linkedin.com/in/taniaungureanu/" target="_blank">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
+                  <i class="fa fa-linkedin"></i>
+                </a>
               </li>
             </ul>
           </div>
         </div>
       </div>
+
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
           <p class="large text-muted mb-3">Please don't hesitate to contact us for your future projects.</p>
@@ -360,7 +354,7 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase mb-5">Contact Us</h2>
-          <h3 class="section-subheading text-muted">The fields marked with * are mandatory. Please make sure you fill in all the mandatory fields and we will get back to you as soon as possible.</h3>
+          <h3 class="section-subheading text-muted contactForm">The fields marked with * are mandatory. Please make sure you fill in all the mandatory fields and we will get back to you as soon as possible.</h3>
         </div>
       </div>
       <div class="row">
@@ -450,8 +444,6 @@
   <!--API Google maps - scripts-->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwwUFNzQ-CIA-dK3cvJgmTfeqLbVNB7Ow&callback=initMap">
   </script>
-
-
 
 </body>
 

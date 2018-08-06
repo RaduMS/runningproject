@@ -43,9 +43,14 @@ section h3.section-subheading {
   font-size: 16px;
   font-weight: 400;
   font-style: italic;
-  margin-bottom: 75px;
+  /* margin-bottom: 75px; */
   text-transform: none;
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+section h3.contactForm {
+  margin-bottom: 30px;
+  color: 	#D3D3D3!important;
 }
 
 section p.section-subheading {
@@ -76,7 +81,7 @@ section p.section-subheading {
   font-size: 18px;
   padding: 20px 40px;
   background-color: #e60000;
-  border-color: #e60000;
+  border: none;
   text-shadow: none;
 }
 
