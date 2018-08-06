@@ -18,14 +18,16 @@ $(document).ready(function() {
   $('#datebtn').trigger('click');
 });
 
+// Variables for phrases
+var myQuote = $('.quote');
+var counter = 0;
+var phrases = ["As we run, </br>we become", "Run </br>fast", "Be </br>braver", "Be </br>bolder", "Trust </br>yourself", "Be the best </br>you can be", "The long run is what puts the tiger in the cat"];
+
+// Function for changing the quotes
 function changeQuote() {
 
-  var myQuote = $('.quote');
-  var counter = 0;
-  var phrases = ["As we run, </br>we become", "Run </br>fast", "Be </br>braver", "Be </br>bolder", "Trust </br>yourself", "Be the best </br>you can be", "The long run is what puts the tiger in the cat"];
-
   if (counter < phrases.length) {
-    myQuote.fadeOut(2000, function(){
+      myQuote.fadeOut(2000, function(){
       myQuote.html(phrases[counter]);
       myQuote.fadeIn(2000, function() {
         counter++;
@@ -41,7 +43,6 @@ $("#datebtn").on('click', function() {
   var seconds = transformDate(date);
   weatherReport(seconds);
 });
-
 
 // Declaration of classes for the tracks
 class Track {
@@ -63,7 +64,7 @@ class City {
 }
 
 // Brasov coordinates
-var brasovFlat5 = new Track('5 km run', 5, 'flat',
+var brasovFlat5 = new Track('5 km run - flat', 5, 'flat',
   [{
   lat: 45.64242268,
   lng: 25.58926858
@@ -105,7 +106,7 @@ var brasovFlat5 = new Track('5 km run', 5, 'flat',
   lng: 25.58938525
   }]);
 
-var brasovFlat10 = new Track('10K run', 10, 'flat',
+var brasovFlat10 = new Track('10K run - flat', 10, 'flat',
   [{
   lat: 45.64242268,
   lng: 25.58926858
@@ -187,7 +188,7 @@ var brasovFlat10 = new Track('10K run', 10, 'flat',
   lng: 25.58931278
   }]);
 
-var brasovCombined21 = new Track('Halfmarathon', 21, 'combined',
+var brasovCombined21 = new Track('Halfmarathon - combined', 21, 'combined',
   [{
   lat: 45.64242268,
   lng: 25.58926858
@@ -289,7 +290,7 @@ var brasovCombined21 = new Track('Halfmarathon', 21, 'combined',
   lng: 25.58931278
   }]);
 
-var brasovCombined42 = new Track('Marathon', 42, 'combined',
+var brasovCombined42 = new Track('Marathon - combined', 42, 'combined',
   [{
   lat: 45.64242268,
   lng: 25.58926858
@@ -391,7 +392,7 @@ var brasovCombined42 = new Track('Marathon', 42, 'combined',
   lng: 25.58931278
   }]);
 
-var brasovTrail10 = new Track('10K run', 10, 'trail',
+var brasovTrail10 = new Track('10K run - trail', 10, 'trail',
   [{
   lat: 45.64185073,
   lng: 25.58856986
@@ -429,7 +430,7 @@ var brasovTrail10 = new Track('10K run', 10, 'trail',
   lng: 25.58856986
   }]);
 
-var brasovTrail21 = new Track('Halfmarathon', 21, 'trail',
+var brasovTrail21 = new Track('Halfmarathon - trail', 21, 'trail',
   [{
   lat: 45.64185073,
   lng: 25.58856986
@@ -487,7 +488,7 @@ var brasovTrail21 = new Track('Halfmarathon', 21, 'trail',
   lng: 25.58856986
   }]);
 
-var brasovTrail42 = new Track('Marathon', 42, 'trail',
+var brasovTrail42 = new Track('Marathon - trail', 42, 'trail',
   [{
   lat: 45.64185073,
   lng: 25.58856986
@@ -566,7 +567,7 @@ var brasovTrail42 = new Track('Marathon', 42, 'trail',
   }]);
 
 //Rasnov coordinates
-var rasnovTrail5 = new Track('5 km', 5, 'trail',
+var rasnovTrail5 = new Track('5 km - trail', 5, 'trail',
   [{
   lat: 45.58979548,
   lng: 25.46469236
@@ -580,7 +581,7 @@ var rasnovTrail5 = new Track('5 km', 5, 'trail',
   lng: 25.47606493
   }]);
 
-var rasnovTrail10 = new Track('10K run', 10, 'trail',
+var rasnovTrail10 = new Track('10K run - trail', 10, 'trail',
   [{
   lat: 45.59683817,
   lng: 25.54754797
@@ -590,7 +591,7 @@ var rasnovTrail10 = new Track('10K run', 10, 'trail',
   lng: 25.46558377
   }]);
 
-var rasnovTrail21 = new Track('Halfmarathon', 21, 'trail',
+var rasnovTrail21 = new Track('Halfmarathon - trail', 21, 'trail',
   [{
   lat: 45.5907202,
   lng: 25.46558377
@@ -604,7 +605,7 @@ var rasnovTrail21 = new Track('Halfmarathon', 21, 'trail',
   lng: 25.46558377
   }]);
 
-var rasnovFlat5 = new Track('5 km run', 5, 'flat',
+var rasnovFlat5 = new Track('5 km run - flat', 5, 'flat',
   [{
   lat: 45.58979548,
   lng: 25.46469236
@@ -618,7 +619,7 @@ var rasnovFlat5 = new Track('5 km run', 5, 'flat',
   lng: 25.47606493
   }]);
 
-var rasnovFlat10 = new Track('10K run', 10, 'flat',
+var rasnovFlat10 = new Track('10K run - flat', 10, 'flat',
   [{
   lat: 45.59683817,
   lng: 25.54754797
@@ -628,7 +629,7 @@ var rasnovFlat10 = new Track('10K run', 10, 'flat',
   lng: 25.46558377
   }]);
 
-var rasnovFlat21 = new Track('Halfmarathon', 21, 'flat',
+var rasnovFlat21 = new Track('Halfmarathon - flat', 21, 'flat',
   [{
   lat: 45.5907202,
   lng: 25.46558377
@@ -642,7 +643,7 @@ var rasnovFlat21 = new Track('Halfmarathon', 21, 'flat',
   lng: 25.46558377
   }]);
 
-var rasnovCombined5 = new Track('5 km run', 5, 'combined',
+var rasnovCombined5 = new Track('5 km run - combined', 5, 'combined',
   [{
   lat: 45.58979548,
   lng: 25.46469236
@@ -656,7 +657,7 @@ var rasnovCombined5 = new Track('5 km run', 5, 'combined',
   lng: 25.47606493
   }]);
 
-var rasnovCombined10 = new Track('10K run', 10, 'combined',
+var rasnovCombined10 = new Track('10K run - combined', 10, 'combined',
   [{
   lat: 45.59683817,
   lng: 25.54754797
@@ -666,7 +667,7 @@ var rasnovCombined10 = new Track('10K run', 10, 'combined',
   lng: 25.46558377
   }]);
 
-var rasnovCombined21 = new Track('Halfmarathon', 21, 'combined',
+var rasnovCombined21 = new Track('Halfmarathon - combined', 21, 'combined',
   [{
   lat: 45.5907202,
   lng: 25.46558377
