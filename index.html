@@ -11,7 +11,7 @@
   <title>Running Application</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- flipcountdown jquery plugin-->
   <link rel="stylesheet" type="text/css" href="flipcountdown-master/jquery.flipcountdown.css" />
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
 
   <!-- Custom fonts for this application -->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="libraries/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -156,7 +156,7 @@
 </section>
 
 <!-- Maps -->
-<section class="routesSection bg-light" id="routes">
+<section class="routesSection bg-light">
   <div class="container">
     <div class="row text-center">
       <div class="col-md-12">
@@ -409,18 +409,18 @@
   </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="libraries/jquery/jquery.min.js"></script>
+    <script src="libraries/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="libraries/jquery/jquery.min.js"></script>
+  <script src="libraries/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
 
   <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="libraries/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Plugin flipcountdown -->
   <script type="text/javascript" src="flipcountdown-master/jquery.flipcountdown.js"></script>
@@ -430,15 +430,19 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
 
   <!-- Plugin Spotify -->
-  <script type="text/javascript" src="js/spotify-web-api.js"></script>
+  <script type="text/javascript" src="js_template/spotify-web-api.js"></script>
 
-  <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+  <script type="text/javascript" src="js_template/jqBootstrapValidation.js"></script>
   <script src="js/contact_me.js"></script>
 
   <!-- Cookies -->
-  <script src="js/jquery.cookie.js"></script>
+  <script src="js_template/jquery.cookie.js"></script>
+
   <!-- Custom scripts for this template -->
+  <script src="js/coordinates.js"></script>
   <script src="js/template.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/spotify.js"></script>
   <script src="js/main.js"></script>
 
   <!--API Google maps - scripts-->
