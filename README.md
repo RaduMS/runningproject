@@ -5,7 +5,7 @@ Running application on [heroku](https://vastrunningapp.herokuapp.com/).
 
 ## Preview
 
-[![Agency Preview](img\trail\header-bg.jpg)](https://vastrunningapp.herokuapp.com/)
+[![Agency Preview](https://vastrunningapp.herokuapp.com/img/trail/header-bg.jpg)](https://vastrunningapp.herokuapp.com/)
 
 **[View Live Preview](https://vastrunningapp.herokuapp.com/)**
 
